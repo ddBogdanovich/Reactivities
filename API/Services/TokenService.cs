@@ -10,7 +10,12 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace API.Services
 {
-    public class TokenService
+    public interface ITokenService
+    {
+        string CreateToken(AppUser user);
+    }
+
+    public class TokenService : ITokenService
     {
         private readonly IConfiguration _config;
         public TokenService(IConfiguration config)
